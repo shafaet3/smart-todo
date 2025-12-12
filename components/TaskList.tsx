@@ -7,11 +7,10 @@ import Toast from "./Toast";
 import { prioritize } from "@/services/ai.service";
 
 export default function TaskList() {
-  const { tasks, fetchTasks, loading } = useTaskStore();
+  const { tasks, fetchTasks, loading, error } = useTaskStore();
+
   const [aiResult, setAiResult] = useState<any[]>([]);
   const [loadingAI, setLoadingAI] = useState(false);
-
-  // Toast local state
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState<"success" | "error">("success");
 
@@ -28,9 +27,15 @@ export default function TaskList() {
     <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
   );
 
+  // Fetch tasks on load
   useEffect(() => {
     fetchTasks();
   }, [fetchTasks]);
+
+  //Zustand store error show toast
+  useEffect(() => {
+    if (error) showToast(error, "error");
+  }, [error]);
 
   const handlePrioritize = useCallback(async () => {
     try {
@@ -63,24 +68,20 @@ export default function TaskList() {
 
   return (
     <div className="mt-4">
-
       {/* Toast */}
       {toastMessage && <Toast message={toastMessage} type={toastType} />}
 
       <button
         onClick={handlePrioritize}
         disabled={loadingAI}
-        className={`bg-purple-600 text-white px-4 py-2 rounded mb-5 flex items-center ${
-          loadingAI ? "opacity-70 cursor-not-allowed" : ""
-        }`}
+        className={`bg-purple-600 text-white px-4 py-2 rounded mb-5 flex items-center ${loadingAI ? "opacity-70 cursor-not-allowed" : ""
+          }`}
       >
         {loadingAI && <Spinner />}
         {loadingAI ? "Prioritizing..." : "Prioritize Tasks"}
       </button>
 
-      {tasks.length === 0 && (
-        <p className="text-gray-500">No tasks yet</p>
-      )}
+      {tasks.length === 0 && <p className="text-gray-500">No tasks yet</p>}
 
       {tasks.map((task) => (
         <TaskItem key={task.id} task={task} />
