@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart ToDo App (Task Prioritizer)
 
-## Getting Started
+> **AI-powered task management using Next.js, Zustand, Tailwind, and Google Gemini AI.**
 
-First, run the development server:
+A modern todo app where users can add tasks, categorize them, and **automatically generate AI-prioritized tasks** using Google's **Gemini 2.0 API**.
+
+---
+
+## 📸 Preview
+
+| Tasks Before Prioritization Screenshot |
+| :---: | 
+| *![Tasks Before Prioritization Screenshot](https://raw.githubusercontent.com/shafaet3/smart-todo/main/tasks_before_prioritize.PNG)*
+
+| Tasks After Prioritization Screenshot |
+| :---: | 
+| ![Tasks After Prioritization Screenshot](https://raw.githubusercontent.com/shafaet3/smart-todo/main/tasks_after_prioritize.PNG)
+
+---
+
+## 🚀 Key Features
+
+A brief glance at what this application offers:
+
+| Icon | Feature | Description |
+| :---: | :--- | :--- |
+| **✔️** | **Task Management** | Add, edit, and delete tasks with ease. |
+| **🤖** | **AI-Powered Prioritization** | Automatically assigns **High / Medium / Low** priority via Gemini AI. |
+| **🏷️** | **Category Tagging** | Organize tasks with custom category labels. |
+| **🛡️** | **Strict Validation** | **Zod-powered** schema validation for robust data integrity. |
+| **⚛️** | **Global State** | Efficient state management using **Zustand**. |
+| **🔔** | **Notifications** | Beautiful, dismissible Toast notifications styled with Tailwind. |
+| **⚙️** | **Architecture** | Clean, API-driven architecture for scalability. |
+| **✍️** | **Typing** | Fully typed codebase with **TypeScript** for developer confidence. |
+
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/shafaet3/smart-todo.git](https://github.com/shafaet3/smart-todo.git)
+cd smart-todo
+
 ```
+### 2️⃣ Install dependencies
+```bash
+npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+### 3️⃣ Run the Project Locally
+```bash
+npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
